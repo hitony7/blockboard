@@ -7,7 +7,7 @@ export default function Footer() {
       <hr style={styles.divider} />
       <div style={styles.content}>
         <p style={styles.copyright}>
-          © 2024 Blackboard. All Rights Reserved
+          © 2024 Blockboard. All Rights Reserved
         </p>
         <div style={styles.socialIcons}>
           <Link href="https://instagram.com" target="_blank" aria-label="Instagram">
