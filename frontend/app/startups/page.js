@@ -7,7 +7,7 @@ export default function Startups() {
       <Hero
         heading={
           <>
-            Get Funded, <span className="text-primary">Grow Faster</span>
+            Get Funded, <br/><span className="text-primary">Grow Faster</span>
           </>
         }
         subheading="Secure the funding you need to scale your startup. Our platform connects you with passionate investors who believe in your vision. Get the financial boost you need to reach your next milestone with as little friction as possible."
