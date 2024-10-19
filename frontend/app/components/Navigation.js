@@ -11,16 +11,16 @@ export default function Navigation() {
   return (
     <div className="py-3 px-8 flex justify-between items-center">
       <Link href="/">
-        <Image src={logo} width={200} alt="logo" />
+        <Image className="w-44 md:w-52" src={logo} width={200} alt="logo" />
       </Link>
 
       <div>
         {pathname === "/startups" ? (
-          <Link href="/" className="hover:text-primary p-4 border border-primary text-gray-300 font-bold text-sm md:text-md">
+          <Link href="/" className="hover:text-primary md:p-4 md:border md:border-primary text-gray-300 font-bold text-xs md:text-md">
             Are you an investor?
           </Link>
         ) : (
-          <Link href="/startups" className="hover:text-primary text-gray-300 font-bold p-4 border border-primary text-sm md:text-md">
+          <Link href="/startups" className="hover:text-primary text-gray-300 font-bold md:p-4 md:border md:border-primary text-xs md:text-md">
             Are you a startup?
           </Link>
         )}

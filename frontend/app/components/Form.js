@@ -45,8 +45,8 @@ export default function ContactForm({api}) {
       <div className="container mx-auto px-4">
         <h2 className={`${headingFont.className} text-3xl mb-6 mx-auto text-center`}>
           Join Our Waitlist
-        </h2>
-        <form className="shadow-md max-w-2xl p-8 mx-auto" onSubmit={handleSubmit}>
+        </h2> 
+        <form className="shadow-md max-w-2xl p-8 mx-auto" id="form" onSubmit={handleSubmit}>
           <div className="flex flex-col md:flex-row gap-4 items-center mb-4">
             <div className="relative w-full">
               <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
