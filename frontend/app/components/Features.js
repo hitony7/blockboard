@@ -43,7 +43,7 @@ export default function Features() {
         >
           Why BlockBoard?
         </h2>
-        <p className="text-gray-300 text-center mb-8">Our platform is designed to provide investors with transparency, control, and the power to shape the startups they believe in.</p>
+        <p className="text-gray-300 text-center text-lg mb-8 max-w-2xl mx-auto">Our platform is designed to provide investors with transparency, control, and the power to shape the startups they believe in.</p>
         <div className="flex flex-wrap -mx-4">
           {features.map((feature, index) => (
             <div
