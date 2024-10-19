@@ -1,4 +1,5 @@
 import Hero from "@/app/components/Hero";
+import Form from '@/app/components/Form'
 import heroImage from "@/images/hero-startups.svg";
 
 export default function Startups() {
@@ -12,9 +13,10 @@ export default function Startups() {
         }
         subheading="Secure the funding you need to scale your startup. Our platform connects you with passionate investors who believe in your vision. Get the financial boost you need to reach your next milestone with as little friction as possible."
         buttonText="Join Now"
-        buttonLink="/startups"
+        buttonLink="#form"
         imageSrc={heroImage}
       />
+      <Form api="/api/subscribe-startup" />
     </div>
   );
 }
