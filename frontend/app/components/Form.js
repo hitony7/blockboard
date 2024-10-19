@@ -6,7 +6,7 @@ import { useState } from "react";
 import { headingFont } from "@/app/utils/fonts";
 import { FaEnvelope, FaArrowRight } from "react-icons/fa";
 
-export default function ContactForm() {
+export default function ContactForm({api}) {
   const [formData, setFormData] = useState({ email: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -23,7 +23,7 @@ export default function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const res = await fetch("/api/subscribe-investor", {
+    const res = await fetch(api, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,13 +41,13 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="py-16">
+    <section className="py-16" >
       <div className="container mx-auto px-4">
         <h2 className={`${headingFont.className} text-3xl mb-6 mx-auto text-center`}>
           Join Our Waitlist
         </h2>
         <form className="shadow-md max-w-2xl p-8 mx-auto" onSubmit={handleSubmit}>
-          <div className="flex items-center mb-4">
+          <div className="flex flex-col md:flex-row gap-4 items-center mb-4">
             <div className="relative w-full">
               <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
               <input
@@ -63,7 +63,7 @@ export default function ContactForm() {
             </div>
             <button
               type="submit"
-              className="ml-4 bg-primary py-2 px-8 flex items-center group"
+              className="md:ml-4  bg-primary py-2 px-8 flex items-center group"
             >
               {isSubmitting ? "Sending..." : "Send"}
               <FaArrowRight className="ml-3 transform group-hover:translate-x-2 transition-transform duration-300" />

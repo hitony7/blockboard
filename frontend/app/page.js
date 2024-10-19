@@ -15,11 +15,11 @@ export default function Home() {
           }
           subheading="Invest in exciting startups with confidence and ease. Our innovative platform gives you a say in company decisions and clear visibility into your investments. Join the future of startup funding with as little as $100."
           buttonText="Join Now"
-          buttonLink="/investors"
+          buttonLink="#form"
           imageSrc={heroImage}
         />
         <Features />
-        <Form />
+        <Form api="/api/subscribe-investor" />
     </div>
   );
 }   
