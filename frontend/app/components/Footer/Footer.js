@@ -3,73 +3,27 @@ import { FaInstagram, FaLinkedin, FaTwitter, FaDiscord } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer style={styles.footer}>
-      <hr style={styles.divider} />
-      <div style={styles.content}>
-        <p style={styles.copyright}>
+    <footer className="fixed bottom-0 left-0 w-full h-20 bg-black text-white flex flex-col justify-center z-50 pt-2.5">
+      <hr className="w-full border-white border-t mb-2.5" />
+      <div className="flex justify-between items-center px-5">
+        <p className="m-0 text-sm font-light">
           © 2024 Blockboard. All Rights Reserved
         </p>
-        <div style={styles.socialIcons}>
+        <div className="flex gap-5">
           <Link href="https://instagram.com" target="_blank" aria-label="Instagram">
-            <FaInstagram style={styles.icon} />
+            <FaInstagram className="text-white text-2xl transition-colors hover:text-blue-500" />
           </Link>
           <Link href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
-            <FaLinkedin style={styles.icon} />
+            <FaLinkedin className="text-white text-2xl transition-colors hover:text-blue-500" />
           </Link>
           {/* <Link href="https://twitter.com" target="_blank" aria-label="Twitter">
-            <FaTwitter style={styles.icon} />
+            <FaTwitter className="text-white text-2xl transition-colors hover:text-blue-500" />
           </Link> */}
           <Link href="https://discord.com" target="_blank" aria-label="Discord">
-            <FaDiscord style={styles.icon} />
+            <FaDiscord className="text-white text-2xl transition-colors hover:text-blue-500" />
           </Link>
         </div>
       </div>
     </footer>
   );
 }
-
-const styles = {
-  footer: {
-    position: 'fixed',
-    bottom: 0,
-    left: 0,
-    width: '100%',
-    height: '80px',  // Slightly taller footer
-    backgroundColor: 'black',
-    color: 'white',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    zIndex: 1000,
-    paddingTop: '10px',  // Creates space above the content
-  },
-  divider: {
-    width: '100%',
-    borderColor: 'white',
-    borderWidth: '1px',
-    marginBottom: '10px',  // Moves the divider slightly higher above the content
-  },
-  content: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: '0 20px',
-  },
-  copyright: {
-    margin: 0,
-    fontSize: '14px',
-    fontWeight: 300,
-  },
-  socialIcons: {
-    display: 'flex',
-    gap: '20px',
-  },
-  icon: {
-    color: 'white',
-    fontSize: '24px',
-    transition: 'color 0.3s',
-  },
-  iconHover: {
-    color: '#3b82f6',
-  },
-};
