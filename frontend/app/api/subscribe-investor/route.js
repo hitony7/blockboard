@@ -6,13 +6,13 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request) {
-  const { name, email, message } = await request.json();
+  const {  email } = await request.json();
 
   try {
     await resend.sendEmail({
       to: "torkmatin@gmail.com",
-      subject: `New Investor Form Submission from ${name}`,
-      body: `You have a new message from ${name} (${email}):\n\n${message}`,
+      subject: `New Investor Form Submission`,
+      body: `You have a new interested in investing using BlockBoard: ${email}`,
     });
 
     return NextResponse.json({ success: true }, { status: 200 });
