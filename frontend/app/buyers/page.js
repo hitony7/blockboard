@@ -9,6 +9,10 @@ export default function buyer() {
         revenueMultiple: '',
         ttmRevenue: '',
         profit: '',
+        customPrice: '',
+        customRevenue: '',
+        customTTMRevenue: '',
+        customProfit: '',
     });
 
     const handleChange = (e) => {
@@ -59,7 +63,18 @@ export default function buyer() {
                                     <option value="100000-500000">$100,000 - $500,000</option>
                                     <option value="500000-1000000">$500,000 - $1,000,000</option>
                                     <option value="1000000+">$1,000,000+</option>
+                                    <option value="custom">Custom</option>
                                 </select>
+                                {formData.price === 'custom' && (
+                                    <input
+                                        type="text"
+                                        name="customPrice"
+                                        value={formData.customPrice}
+                                        onChange={handleChange}
+                                        placeholder="Enter custom price"
+                                        className="mt-2 block w-full px-4 py-3 text-white bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    />
+                                )}
                             </div>
                             <div>
                                 <label htmlFor="revenue" className="block text-lg font-medium text-white mb-3">Revenue</label>
@@ -75,7 +90,18 @@ export default function buyer() {
                                     <option value="100000-500000">$100,000 - $500,000</option>
                                     <option value="500000-1000000">$500,000 - $1,000,000</option>
                                     <option value="1000000+">$1,000,000+</option>
+                                    <option value="custom">Custom</option>
                                 </select>
+                                {formData.revenue === 'custom' && (
+                                    <input
+                                        type="text"
+                                        name="customRevenue"
+                                        value={formData.customRevenue}
+                                        onChange={handleChange}
+                                        placeholder="Enter custom revenue"
+                                        className="mt-2 block w-full px-4 py-3 text-white bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    />
+                                )}
                             </div>
                             <div>
                                 <label htmlFor="revenueMultiple" className="block text-lg font-medium text-white mb-3">Revenue Multiple</label>
@@ -107,7 +133,18 @@ export default function buyer() {
                                     <option value="100000-500000">$100,000 - $500,000</option>
                                     <option value="500000-1000000">$500,000 - $1,000,000</option>
                                     <option value="1000000+">$1,000,000+</option>
+                                    <option value="custom">Custom</option>
                                 </select>
+                                {formData.ttmRevenue === 'custom' && (
+                                    <input
+                                        type="text"
+                                        name="customTTMRevenue"
+                                        value={formData.customTTMRevenue}
+                                        onChange={handleChange}
+                                        placeholder="Enter custom TTM revenue"
+                                        className="mt-2 block w-full px-4 py-3 text-white bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    />
+                                )}
                             </div>
                             <div>
                                 <label htmlFor="profit" className="block text-lg font-medium text-white mb-3">Profit</label>
@@ -123,7 +160,18 @@ export default function buyer() {
                                     <option value="50000-100000">$50,000 - $100,000</option>
                                     <option value="100000-500000">$100,000 - $500,000</option>
                                     <option value="500000+">$500,000+</option>
+                                    <option value="custom">Custom</option>
                                 </select>
+                                {formData.profit === 'custom' && (
+                                    <input
+                                        type="text"
+                                        name="customProfit"
+                                        value={formData.customProfit}
+                                        onChange={handleChange}
+                                        placeholder="Enter custom profit"
+                                        className="mt-2 block w-full px-4 py-3 text-white bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    />
+                                )}
                             </div>
                         </div>
                         <div className="flex justify-center">
