@@ -13,7 +13,7 @@ export default function Hero({ heading, subheading, buttonText, buttonLink, imag
   };
 
   return (
-    <section className="h-screen flex flex-col-reverse lg:flex-row items-center justify-center">
+    <section className="h-min-screen flex flex-col-reverse lg:flex-row items-center justify-center mt-12 md:mt-24">
       <div className="text-center lg:text-left p-8 lg:w-1/2">
         <h1 className={`${headingFont.className} text-4xl lg:text-6xl font-bold mb-4`}>
           {heading}
