@@ -25,7 +25,7 @@ export default function Navigation() {
             Are you a startup?
           </Link>
         )}
-        <Link href="/dashboard" className="text-gray-300 text-sm font-bold hover:text-primary flex gap-1 items-center">
+        <Link href="/dashboard/investors" className="text-gray-300 text-sm font-bold hover:text-primary flex gap-1 items-center">
           <RiLoginBoxLine /> Login
         </Link>
       </div>

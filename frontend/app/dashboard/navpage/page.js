@@ -2,6 +2,7 @@
 
 import DashboardLayout from "@/layout/DashboardLayout";
 import { useState } from "react";
+import Link from "next/link";
 import { FaEthereum } from "react-icons/fa";
 import { headingFont } from "@/utils/fonts";
 
@@ -44,7 +45,10 @@ export default function VotingPage() {
         </div>
 
         {/* Main Content */}
-        <div className="w-3/4 flex items-center justify-center p-6">
+        <div className="w-3/4 flex items-center justify-center p-6 flex-col gap-3">
+          <Link href="/dashboard/new-proposal" className={`text-xl underline font-bold hover:text-primary`}>
+            New Proposal
+          </Link>
           <div className="w-full max-w-lg bg-secondary shadow-xl p-8 space-y-8">
             <div className="text-center">
               <h1 className="text-3xl font-bold text-white">{project.name}</h1>

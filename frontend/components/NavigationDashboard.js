@@ -83,20 +83,11 @@ export default function NavigationDashboard() {
         <Image className="w-44 md:w-52" src={logo} width={200} alt="logo" />
       </Link>
       <div className="flex gap-3 items-center text-sm">
-        <Link href="/dashboard" className={`text-sm font-bold hover:text-primary ${pathname === "/dashboard" ? "text-primary" : "text-gray-300"}`}>
-          Dashboard
-        </Link>
         <Link href="/dashboard/investors" className={`text-sm font-bold hover:text-primary ${pathname === "/dashboard/investors" ? "text-primary" : "text-gray-300"}`}>
           Investors
         </Link>
         <Link href="/dashboard/companies" className={`text-sm font-bold hover:text-primary ${pathname === "/dashboard/companies" ? "text-primary" : "text-gray-300"}`}>
           Companies
-        </Link>
-        <Link href="/dashboard/navpage" className={`text-sm font-bold hover:text-primary ${pathname === "/dashboard/navpage" ? "text-primary" : "text-gray-300"}`}>
-          Navpage?
-        </Link>
-        <Link href="/dashboard/new-proposal" className={`text-sm font-bold hover:text-primary ${pathname === "/dashboard/new-proposal" ? "text-primary" : "text-gray-300"}`}>
-          New Proposal
         </Link>
         <Link href="/dashboard/voting" className={`text-sm font-bold hover:text-primary ${pathname === "/dashboard/voting" ? "text-primary" : "text-gray-300"}`}>
           Voting
