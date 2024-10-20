@@ -32,7 +32,7 @@ export default function CompanyCards() {
   const router = useRouter();
 
   const handleCardClick = () => {
-    router.push("/navpage");
+    router.push("/dashboard/navpage");
   };
 
   return (
