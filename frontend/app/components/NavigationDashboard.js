@@ -6,7 +6,7 @@ import logo from "@/images/logo.svg";
 import { useState, useEffect } from "react";
 import Web3 from "web3";
 
-export default function Navigation() {
+export default function NavigationDashboard() {
   const [web3Instance, setWeb3Instance] = useState(null);
   const [account, setAccount] = useState(null);
 
@@ -87,14 +87,26 @@ export default function Navigation() {
   }, []);
 
   return (
-    <div className="flex items-center justify-between p-4 bg-gray-900">
+    <div className="flex items-center justify-between p-4 bg-secondary">
       <div className="flex items-center gap-4">
         <Link href="/">
           <Image src={logo} width={180} alt="logo" />
         </Link>
         {/* Link to the Investor Page */}
-        <Link href="/buyers" className="text-lg hover:underline text-white">
+        <Link href="/dashboard/buyers" className="hover:text-primary">
           Investors
+        </Link>
+        <Link href="/dashboard/companies" className="hover:text-primary">
+          Companies
+        </Link>
+        <Link href="/dashboard/navpage" className="hover:text-primary">
+          Navpage?
+        </Link>
+        <Link href="/dashboard/new-proposal" className="hover:text-primary">
+          New Proposal
+        </Link>
+        <Link href="/dashboard/voting" className="hover:text-primary">
+          Voting
         </Link>
       </div>
       <div>
