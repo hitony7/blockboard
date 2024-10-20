@@ -28,7 +28,7 @@ export default function Buyer() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    router.push("/companypage");
+    router.push("/dashboard/companies");
   };
 
   return (
