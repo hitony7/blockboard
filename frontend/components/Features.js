@@ -24,7 +24,7 @@ const features = [
     icon: <FaMoneyBillWave size={40} />,
     title: (<>Low Barriers<br/> to Entry</>),
     description:
-      "Start investing with as little as $100, making it easy to build and diversify your portfolio.",
+      "Start investing with minimal capital, making it easy for anyone to build and diversify their portfolio.",
   },
   {
     icon: <FaLayerGroup size={40} />,
