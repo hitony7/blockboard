@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import DashboardLayout from "@/layout/DashboardLayout";
+import { headingFont } from "@/utils/fonts";
 
 export default function Buyer() {
   const router = useRouter(); // Initialize the router hook
@@ -34,8 +35,8 @@ export default function Buyer() {
     <DashboardLayout>
       <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gray-800 shadow-xl rounded-lg px-10 py-12">
-            <h2 className="text-4xl font-bold text-white mb-8 text-center">
+          <div className="bg-secondary shadow-xl px-10 py-12">
+            <h2 className={`${headingFont.className} text-4xl font-light text-white mb-4 text-center`}>
               Discover Your Next Investment
             </h2>
             <p className="text-lg text-gray-300 mb-10 text-center">
@@ -57,13 +58,13 @@ export default function Buyer() {
                     name="category"
                     value={formData.category}
                     onChange={handleChange}
-                    className="block w-full px-4 py-3 text-white bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="block w-full px-4 py-3 text-white  border border-primary bg-transparent  focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
-                    <option value="">All Categories</option>
-                    <option value="technology">Technology</option>
-                    <option value="healthcare">Healthcare</option>
-                    <option value="finance">Finance</option>
-                    <option value="other">Other</option>
+                    <option className="text-black" value="">All Categories</option>
+                    <option  className="text-black" value="technology">Technology</option>
+                    <option className="text-black" value="healthcare">Healthcare</option>
+                    <option className="text-black" value="finance">Finance</option>
+                    <option className="text-black" value="other">Other</option>
                   </select>
                 </div>
 
@@ -80,16 +81,16 @@ export default function Buyer() {
                     name="price"
                     value={formData.price}
                     onChange={handleChange}
-                    className="block w-full px-4 py-3 text-white bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="block w-full px-4 py-3  border border-primary bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
-                    <option value="">Any Price</option>
-                    <option value="0-100000">$0 - $100,000</option>
-                    <option value="100000-500000">$100,000 - $500,000</option>
-                    <option value="500000-1000000">
+                    <option className="text-black" value="">Any Price</option>
+                    <option className="text-black" value="0-100000">$0 - $100,000</option>
+                    <option className="text-black" value="100000-500000">$100,000 - $500,000</option>
+                    <option className="text-black" value="500000-1000000">
                       $500,000 - $1,000,000
                     </option>
-                    <option value="1000000+">$1,000,000+</option>
-                    <option value="custom">Custom</option>
+                    <option className="text-black" value="1000000+">$1,000,000+</option>
+                    <option className="text-black" value="custom">Custom</option>
                   </select>
                   {formData.price === "custom" && (
                     <input
@@ -98,7 +99,7 @@ export default function Buyer() {
                       value={formData.customPrice}
                       onChange={handleChange}
                       placeholder="Enter custom price"
-                      className="mt-2 block w-full px-4 py-3 text-white bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="mt-2 block w-full px-4 py-3 text-white bg-secondary focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                   )}
                 </div>
@@ -109,7 +110,7 @@ export default function Buyer() {
               <div className="flex justify-center">
                 <button
                   type="submit"
-                  className="w-full md:w-1/2 py-4 px-6 text-xl font-bold text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  className="w-full md:w-1/2 py-4 px-6 text-lg font-bold text-white bg-primary hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 >
                   Search Companies
                 </button>

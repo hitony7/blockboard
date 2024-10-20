@@ -14,7 +14,7 @@ export default function Home() {
               Invest in <span className="text-primary">Tomorrow's Giants</span>, Today
             </>
           }
-          subheading="Invest in exciting startups with confidence and ease. Our innovative platform gives you a say in company decisions and clear visibility into your investments. Join the future of startup funding with as little as $100."
+          subheading="Invest in exciting startups with confidence and ease. Our innovative platform gives you a say in company decisions and clear visibility into your investments."
           buttonText="Join Now"
           buttonLink="#form"
           imageSrc={heroImage}
