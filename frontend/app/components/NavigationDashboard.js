@@ -80,7 +80,10 @@ export default function NavigationDashboard() {
 
       // Cleanup event listeners on component unmount
       return () => {
-        window.ethereum.removeListener("accountsChanged", handleAccountsChanged);
+        window.ethereum.removeListener(
+          "accountsChanged",
+          handleAccountsChanged
+        );
         window.ethereum.removeListener("chainChanged", handleChainChanged);
       };
     }
@@ -92,6 +95,8 @@ export default function NavigationDashboard() {
         <Link href="/">
           <Image src={logo} width={180} alt="logo" />
         </Link>
+      </div>
+      <div className="flex gap-3 items-center text-sm">
         {/* Link to the Investor Page */}
         <Link href="/dashboard/buyers" className="hover:text-primary">
           Investors
@@ -108,10 +113,11 @@ export default function NavigationDashboard() {
         <Link href="/dashboard/voting" className="hover:text-primary">
           Voting
         </Link>
-      </div>
-      <div>
         {account ? (
-          <span className="text-white">{`Connected: ${account.substring(0, 6)}...${account.slice(-4)}`}</span>
+          <span className="text-white">{`Connected: ${account.substring(
+            0,
+            6
+          )}...${account.slice(-4)}`}</span>
         ) : (
           <button
             onClick={connectMetaMask}

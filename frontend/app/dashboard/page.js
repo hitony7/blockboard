@@ -8,7 +8,6 @@ export default function Dashboard() {
         <main>
         </main>
       <Footer />
-
     </div>
   );
 }
