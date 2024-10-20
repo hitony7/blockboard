@@ -2,9 +2,7 @@
 
 import "./globals.css";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { bodyFont } from "./utils/fonts";
-import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
+import { bodyFont } from "@/utils/fonts";
 
 export const metadata = {
   title: "BlockBoard",
@@ -18,13 +16,11 @@ export default function RootLayout({ children }) {
         <GoogleTagManager gtmId="G-7EE9HWCSDS" />
       </head>
       <body
-        className={`${bodyFont} antialiased bg-background text-foreground`}
+        className={`${bodyFont.className} antialiased bg-background text-foreground`}
       >
-        <Navigation />
         <main className="container max-w-7xl mx-auto">
           {children}
         </main>
-        <Footer />
       </body>
     </html>
   );

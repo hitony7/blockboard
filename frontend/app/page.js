@@ -1,12 +1,13 @@
 // ./frontend/app/page.js
-import Hero from "@/app/components/Hero";
-import Features from "./components/Features";
+import MarketingLayout from "@/layout/MarketingLayout";
+import Hero from "@/components/Hero";
+import Features from "@/components/Features";
 import heroImage from '@/images/hero.svg'
-import Form from '@/app/components/Form'
+import Form from '@/components/Form'
 
 export default function Home() {
   return (
-      <div>
+      <MarketingLayout>
         <Hero
           heading={
             <>
@@ -20,6 +21,6 @@ export default function Home() {
         />
         <Features />
         <Form api="/api/subscribe-investor" />
-    </div>
+    </MarketingLayout>
   );
 }   

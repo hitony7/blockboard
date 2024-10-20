@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { headingFont } from "@/app/utils/fonts";
+import { headingFont } from "@/utils/fonts";
 
 export default function Hero({ heading, subheading, buttonText, buttonLink, imageSrc }) {
 

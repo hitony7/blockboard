@@ -3,7 +3,7 @@
 "use client";
 
 import { useState } from "react";
-import { headingFont } from "@/app/utils/fonts";
+import { headingFont } from "@/utils/fonts";
 import { FaEnvelope, FaArrowRight } from "react-icons/fa";
 
 export default function ContactForm({api}) {
