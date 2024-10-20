@@ -1,4 +1,4 @@
-"use client"; // Convert to a Client Component
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -87,13 +87,14 @@ export default function Navigation() {
   }, []);
 
   return (
-    <div className="flex items-center justify-between p-4">
+    <div className="flex items-center justify-between p-4 bg-gray-900">
       <div className="flex items-center gap-4">
         <Link href="/">
           <Image src={logo} width={180} alt="logo" />
         </Link>
-        <Link href="/dao" className="text-lg hover:underline text-white">
-          DAO
+        {/* Link to the Investor Page */}
+        <Link href="/buyers" className="text-lg hover:underline text-white">
+          Investors
         </Link>
       </div>
       <div>
