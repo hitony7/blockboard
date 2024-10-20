@@ -1,9 +1,10 @@
 "use client"; // Ensure this is a Client Component
 
-import NavigationDashboard from "@/components/NavigationDashboard";
-import Footer from "@/components/Footer";
+import { useState, useEffect } from "react";
+import DashboardLayout from "@/layout/DashboardLayout";
 import { headingFont } from "@/utils/fonts";
 import { Pie, Line } from "react-chartjs-2";
+import { motion } from "framer-motion";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -14,95 +15,137 @@ import {
   LinearScale,
   PointElement,
 } from "chart.js";
+import { FaChartLine, FaChartPie } from "react-icons/fa";
 
 // Register the required components
 ChartJS.register(ArcElement, LineElement, Tooltip, Legend, CategoryScale, LinearScale, PointElement);
 
 export default function Dashboard() {
-  // Sample data for the pie chart
-  const pieData = {
-    labels: ["Nav", "Company", "Prompt AI"],
-    datasets: [
-      {
-        label: "Sample Data",
-        data: [30, 50, 20], // Pie chart values
-        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-        hoverOffset: 4,
-      },
-    ],
-  };
+  const [chartData, setChartData] = useState(null);
 
-  // Sample assets data (including token amounts)
-  const assets = [
-    { name: "Nav", value: 30, tokens: 300 },
-    { name: "Company", value: 50, tokens: 500 },
-    { name: "Prompt AI", value: 20, tokens: 200 },
-  ];
+  useEffect(() => {
+    // Simulate data loading
+    setTimeout(() => {
+      setChartData({
+        pieData: {
+          labels: ["Nav", "Company", "Prompt AI"],
+          datasets: [{
+            data: [30, 50, 20],
+            backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+          }],
+        },
+        lineData: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+          datasets: [{
+            label: "Price Over Time (USD)",
+            data: [100, 150, 120, 170, 200, 180, 220],
+            borderColor: "#4FD1C5",
+            tension: 0.1,
+          }],
+        },
+        assets: [
+          { name: "Nav", value: 30, tokens: 300 },
+          { name: "Company", value: 50, tokens: 500 },
+          { name: "Prompt AI", value: 20, tokens: 200 },
+        ],
+      });
+    }, 1000);
+  }, []);
 
-  // Calculate total value and total tokens
-  const totalValue = assets.reduce((acc, asset) => acc + asset.value, 0);
-  const totalTokens = assets.reduce((acc, asset) => acc + asset.tokens, 0);
-
-  // Sample data for the price tracking line chart
-  const lineData = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"], // Example months
-    datasets: [
-      {
-        label: "Price Over Time (USD)",
-        data: [100, 150, 120, 170, 200, 180, 220], // Sample price data
-        fill: false,
-        borderColor: "#FFFFFF", // Set line color to white
-        tension: 0.1, // Add some smoothing to the line
-      },
-    ],
-  };
+  const totalValue = chartData?.assets.reduce((acc, asset) => acc + asset.value, 0) || 0;
+  const totalTokens = chartData?.assets.reduce((acc, asset) => acc + asset.tokens, 0) || 0;
 
   return (
-    <div className="container mx-auto px-4">
-      <NavigationDashboard />
-      <main className="flex flex-col items-center my-20"> {/* Center content vertically */}
-        <h1 className={`${headingFont.className} text-3xl mb-6 text-white`}>Dashboard</h1> {/* Set heading text to white */}
-        <div className="flex w-full max-w-7xl items-start justify-between space-x-10"> {/* Increase max width for layout */}
-          {/* Price Tracking Line Chart */}
-          <div className="flex flex-col items-center w-3/4 h-[800px]"> {/* Increased height */}
-            <h2 className="text-xl font-bold text-white mb-4">Price Tracking</h2> {/* Set to white */}
-            <div className="w-full h-full">
-              <Line data={lineData} options={{ scales: { x: { ticks: { color: '#FFFFFF' } }, y: { ticks: { color: '#FFFFFF' } } } }} /> {/* Set axes text to white */}
-            </div>
-          </div>
-
-          {/* Combined Asset Box and Pie Chart */}
-          <div className="flex flex-col items-center w-1/4 space-y-4 h-[800px]"> {/* Adjusted height */}
-            {/* Asset Box with Pie Chart */}
-            <div className="bg-gray-800 p-4 rounded-lg shadow-lg w-full h-full flex flex-col justify-between"> {/* Full height */}
-              {/* Total Value Display */}
-              <div className="text-center mb-2">
-                <p className="text-white font-bold text-sm">Total Value: ${totalValue}</p>
-                <p className="text-white font-bold text-xs">Total Tokens: {totalTokens}</p>
-              </div>
-              <h2 className="text-lg font-bold text-white mb-2 text-center">Assets</h2>
-              <div className="flex flex-col space-y-1 mb-4">
-                {assets.map((asset, index) => (
-                  <div key={index} className="bg-gray-700 p-2 rounded-md text-center">
-                    <p className="text-white text-sm font-semibold">
-                      {asset.name}: Tokens {asset.tokens} ({asset.value}%)
-                    </p>
-                  </div>
-                ))}
-              </div>
-              {/* Pie Chart Inside Asset Box */}
-              <div className="flex items-center justify-center w-full h-2/3"> {/* Adjusted height */}
-                <Pie 
-                  data={pieData}
-                  options={{ plugins: { legend: { labels: { color: '#FFFFFF' } } } }} // Set legend text to white
+    <DashboardLayout>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="container mx-auto px-4 py-8"
+      >
+        <h1 className={`${headingFont.className} text-4xl mb-8 text-white text-center`}>Dashboard</h1>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="lg:col-span-2 bg-secondary rounded-lg shadow-xl p-6"
+          >
+            <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
+              <FaChartLine className="mr-2" /> Price Tracking
+            </h2>
+            <div className="h-[400px]">
+              {chartData ? (
+                <Line
+                  data={chartData.lineData}
+                  options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                      x: { ticks: { color: '#FFFFFF' } },
+                      y: { ticks: { color: '#FFFFFF' } }
+                    },
+                    plugins: {
+                      legend: { labels: { color: '#FFFFFF' } }
+                    }
+                  }}
                 />
-              </div>
+              ) : (
+                <div className="flex items-center justify-center h-full">
+                  <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-primary"></div>
+                </div>
+              )}
             </div>
-          </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="bg-secondary rounded-lg shadow-xl p-6"
+          >
+            <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
+              <FaChartPie className="mr-2" /> Asset Distribution
+            </h2>
+            <div className="text-center mb-4">
+              <p className="text-white font-bold">Total Value: ${totalValue}</p>
+              <p className="text-white font-bold">Total Tokens: {totalTokens}</p>
+            </div>
+            <div className="h-[300px] flex items-center justify-center">
+              {chartData ? (
+                <Pie
+                  data={chartData.pieData}
+                  options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                      legend: { position: 'bottom', labels: { color: '#FFFFFF' } }
+                    }
+                  }}
+                />
+              ) : (
+                <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-primary"></div>
+              )}
+            </div>
+            <div className="mt-4 space-y-2">
+              {chartData?.assets.map((asset, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                  className="bg-gray-700 p-2 rounded-md"
+                >
+                  <p className="text-white text-sm font-semibold">
+                    {asset.name}: {asset.tokens} tokens ({asset.value}%)
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
-      </main>
-      <Footer />
-    </div>
+      </motion.div>
+    </DashboardLayout>
   );
 }
 
