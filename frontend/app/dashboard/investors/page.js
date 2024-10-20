@@ -27,7 +27,7 @@ export default function Buyer() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    router.push("/companypage");
+    router.push("/dashboard/companies");
   };
 
   return (
@@ -63,6 +63,8 @@ export default function Buyer() {
                     <option value="technology">Technology</option>
                     <option value="healthcare">Healthcare</option>
                     <option value="finance">Finance</option>
+                    <option value="real-estate">Real Estate</option> {/* New category */}
+                    <option value="consumer-goods">Consumer Goods</option> {/* New category */}
                     <option value="other">Other</option>
                   </select>
                 </div>
@@ -103,8 +105,130 @@ export default function Buyer() {
                   )}
                 </div>
 
-                {/* Other form fields */}
-                {/* (Rest of the form fields can go here) */}
+                {/* Revenue Selection */}
+                <div>
+                  <label
+                    htmlFor="revenue"
+                    className="block text-lg font-medium text-white mb-3"
+                  >
+                    Revenue
+                  </label>
+                  <select
+                    id="revenue"
+                    name="revenue"
+                    value={formData.revenue}
+                    onChange={handleChange}
+                    className="block w-full px-4 py-3 text-white bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="">Any Revenue</option>
+                    <option value="0-100000">$0 - $100,000</option>
+                    <option value="100000-500000">$100,000 - $500,000</option>
+                    <option value="500000-1000000">$500,000 - $1,000,000</option>
+                    <option value="1000000+">$1,000,000+</option>
+                    <option value="custom">Custom</option>
+                  </select>
+                  {formData.revenue === 'custom' && (
+                    <input
+                      type="text"
+                      name="customRevenue"
+                      value={formData.customRevenue}
+                      onChange={handleChange}
+                      placeholder="Enter custom revenue"
+                      className="mt-2 block w-full px-4 py-3 text-white bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  )}
+                </div>
+
+                {/* Revenue Multiple Selection */}
+                <div>
+                  <label
+                    htmlFor="revenueMultiple"
+                    className="block text-lg font-medium text-white mb-3"
+                  >
+                    Revenue Multiple
+                  </label>
+                  <select
+                    id="revenueMultiple"
+                    name="revenueMultiple"
+                    value={formData.revenueMultiple}
+                    onChange={handleChange}
+                    className="block w-full px-4 py-3 text-white bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="">Any Multiple</option>
+                    <option value="0-1">0x - 1x</option>
+                    <option value="1-3">1x - 3x</option>
+                    <option value="3-5">3x - 5x</option>
+                    <option value="5+">5x+</option>
+                  </select>
+                </div>
+
+                {/* TTM Revenue Selection */}
+                <div>
+                  <label
+                    htmlFor="ttmRevenue"
+                    className="block text-lg font-medium text-white mb-3"
+                  >
+                    12-Month TTM Revenue
+                  </label>
+                  <select
+                    id="ttmRevenue"
+                    name="ttmRevenue"
+                    value={formData.ttmRevenue}
+                    onChange={handleChange}
+                    className="block w-full px-4 py-3 text-white bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="">Any Revenue</option>
+                    <option value="0-100000">$0 - $100,000</option>
+                    <option value="100000-500000">$100,000 - $500,000</option>
+                    <option value="500000-1000000">$500,000 - $1,000,000</option>
+                    <option value="1000000+">$1,000,000+</option>
+                    <option value="custom">Custom</option>
+                  </select>
+                  {formData.ttmRevenue === 'custom' && (
+                    <input
+                      type="text"
+                      name="customTTMRevenue"
+                      value={formData.customTTMRevenue}
+                      onChange={handleChange}
+                      placeholder="Enter custom TTM revenue"
+                      className="mt-2 block w-full px-4 py-3 text-white bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  )}
+                </div>
+
+                {/* Profit Selection */}
+                <div>
+                  <label
+                    htmlFor="profit"
+                    className="block text-lg font-medium text-white mb-3"
+                  >
+                    Profit
+                  </label>
+                  <select
+                    id="profit"
+                    name="profit"
+                    value={formData.profit}
+                    onChange={handleChange}
+                    className="block w-full px-4 py-3 text-white bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="">Any Profit</option>
+                    <option value="0-50000">$0 - $50,000</option>
+                    <option value="50000-100000">$50,000 - $100,000</option>
+                    <option value="100000-500000">$100,000 - $500,000</option>
+                    <option value="500000+">$500,000+</option>
+                    <option value="custom">Custom</option>
+                  </select>
+                  {formData.profit === 'custom' && (
+                    <input
+                      type="text"
+                      name="customProfit"
+                      value={formData.customProfit}
+                      onChange={handleChange}
+                      placeholder="Enter custom profit"
+                      className="mt-2 block w-full px-4 py-3 text-white bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  )}
+                </div>
               </div>
               <div className="flex justify-center">
                 <button
