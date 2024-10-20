@@ -1,6 +1,7 @@
-"use client";
+'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation'; // Import useRouter from next/navigation
 
 // Dummy data for company names
 const companyNames = [
@@ -26,6 +27,12 @@ const companyNames = [
 
 export default function CompanyCards() {
   const [companies] = useState(companyNames);
+  const router = useRouter(); // Initialize router
+
+  // Handle card click
+  const handleCardClick = () => {
+    router.push('/navpage'); // Navigate to /navpage
+  };
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
@@ -35,7 +42,8 @@ export default function CompanyCards() {
           {companies.map((company, index) => (
             <div
               key={index}
-              className="bg-gray-800 text-white p-10 rounded-lg shadow-md transition-transform transform hover:scale-105"
+              onClick={handleCardClick} // Add click handler to navigate
+              className="bg-gray-800 text-white p-10 rounded-lg shadow-md transition-transform transform hover:scale-105 cursor-pointer"
             >
               <h2 className="text-2xl font-semibold">{company}</h2>
               <p className="text-gray-400 mt-4">Innovating the future.</p>
@@ -45,4 +53,4 @@ export default function CompanyCards() {
       </div>
     </div>
   );
-}  
+}
