@@ -92,15 +92,7 @@ export default function NavigationDashboard() {
         <Link href="/dashboard/companies" className={`text-sm font-bold hover:text-primary ${pathname === "/dashboard/companies" ? "text-primary" : "text-gray-300"}`}>
           Companies
         </Link>
-        <Link href="/dashboard/navpage" className={`text-sm font-bold hover:text-primary ${pathname === "/dashboard/navpage" ? "text-primary" : "text-gray-300"}`}>
-          Navpage?
-        </Link>
-        <Link href="/dashboard/new-proposal" className={`text-sm font-bold hover:text-primary ${pathname === "/dashboard/new-proposal" ? "text-primary" : "text-gray-300"}`}>
-          New Proposal
-        </Link>
-        <Link href="/dashboard/voting" className={`text-sm font-bold hover:text-primary ${pathname === "/dashboard/voting" ? "text-primary" : "text-gray-300"}`}>
-          Voting
-        </Link>
+       
         {account ? (
           <span className=" text-sm font-bold">{`Connected: ${account.substring(0, 6)}...${account.slice(-4)}`}</span>
         ) : (
