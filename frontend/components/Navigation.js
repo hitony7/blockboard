@@ -17,15 +17,15 @@ export default function Navigation() {
 
       <div className="flex items-center gap-3">
         {pathname === "/startups" ? (
-          <Link href="/" className="hover:text-primary md:p-4 md:border md:border-primary text-gray-300 font-bold text-sm">
+          <Link href="/" className="hover:text-primary md:p-4 md:border md:border-primary text-gray-300 font-bold">
             Are you an investor?
           </Link>
         ) : (
-          <Link href="/startups" className="hover:text-primary text-gray-300 font-bold md:p-4 md:border md:border-primary text-sm">
+          <Link href="/startups" className="hover:text-primary text-gray-300 font-bold md:p-4 md:border md:border-primary">
             Are you a startup?
           </Link>
         )}
-        <Link href="/dashboard/investors" className="text-gray-300 text-sm font-bold hover:text-primary flex gap-1 items-center">
+        <Link href="/dashboard" className="text-gray-300 text-sm font-bold hover:text-primary flex gap-1 items-center">
           <RiLoginBoxLine /> Login
         </Link>
       </div>

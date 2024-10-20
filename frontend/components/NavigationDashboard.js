@@ -83,15 +83,16 @@ export default function NavigationDashboard() {
         <Image className="w-44 md:w-52" src={logo} width={200} alt="logo" />
       </Link>
       <div className="flex gap-3 items-center text-sm">
+        <Link href="/dashboard" className={`text-sm font-bold hover:text-primary ${pathname === "/dashboard" ? "text-primary" : "text-gray-300"}`}>
+          Dashboard
+        </Link>
         <Link href="/dashboard/investors" className={`text-sm font-bold hover:text-primary ${pathname === "/dashboard/investors" ? "text-primary" : "text-gray-300"}`}>
           Investors
         </Link>
         <Link href="/dashboard/companies" className={`text-sm font-bold hover:text-primary ${pathname === "/dashboard/companies" ? "text-primary" : "text-gray-300"}`}>
           Companies
         </Link>
-        <Link href="/dashboard/voting" className={`text-sm font-bold hover:text-primary ${pathname === "/dashboard/voting" ? "text-primary" : "text-gray-300"}`}>
-          Voting
-        </Link>
+       
         {account ? (
           <span className=" text-sm font-bold">{`Connected: ${account.substring(0, 6)}...${account.slice(-4)}`}</span>
         ) : (
