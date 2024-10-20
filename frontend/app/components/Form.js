@@ -44,7 +44,7 @@ export default function ContactForm({api}) {
     <section className="py-16" >
       <div className="container mx-auto px-4">
         <h2 className={`${headingFont.className} text-3xl mb-6 mx-auto text-center`}>
-          Join Our Waitlist
+          Join Our Whitelist
         </h2> 
         <form className="shadow-md max-w-2xl p-8 mx-auto" id="form" onSubmit={handleSubmit}>
           <div className="flex flex-col md:flex-row gap-4 items-center mb-4">
@@ -71,7 +71,7 @@ export default function ContactForm({api}) {
           </div>
 
           {isSubmitted && (
-            <p className="text-green-600 mt-4">Thank you for joining our waitlist!</p>
+            <p className="text-green-600 mt-4">Thank you for joining our Whitelist!</p>
           )}
            {isError && (
             <p className="text-red-600 mt-4">There is something wrong, please try again.</p>
