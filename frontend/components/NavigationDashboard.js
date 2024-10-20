@@ -89,7 +89,7 @@ export default function NavigationDashboard() {
         <Link href="/dashboard/investors" className={`text-sm font-bold hover:text-primary ${pathname === "/dashboard/investors" ? "text-primary" : "text-gray-300"}`}>
           Investors
         </Link>
-        <Link href="/dashboard/companies" className={`text-sm font-bold hover:text-primary ${pathname === "/dashboard/companies" ? "text-primary" : "text-gray-300"}`}>
+        <Link href="/dashboard/CreateCompany" className={`text-sm font-bold hover:text-primary ${pathname === "/dashboard/companies" ? "text-primary" : "text-gray-300"}`}>
           Companies
         </Link>
        
