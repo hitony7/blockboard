@@ -16,11 +16,11 @@ export default function Navigation() {
 
       <div>
         {pathname === "/startups" ? (
-          <Link href="/" className="hover:text-primary md:p-4 md:border md:border-primary text-gray-300 font-bold text-xs md:text-md">
+          <Link href="/" className="hover:text-primary md:p-4 md:border md:border-primary text-gray-300 font-bold text-md">
             Are you an investor?
           </Link>
         ) : (
-          <Link href="/startups" className="hover:text-primary text-gray-300 font-bold md:p-4 md:border md:border-primary text-xs md:text-md">
+          <Link href="/startups" className="hover:text-primary text-gray-300 font-bold md:p-4 md:border md:border-primary text-md">
             Are you a startup?
           </Link>
         )}
